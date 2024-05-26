@@ -1,9 +1,10 @@
+# Maintainer: Evgeniy Dombek <edombek@yandex.ru>
 # Maintainer: Dan McCurry <dan.mc at protonmail dot com>
 # Maintainer: Ethan Best <ethan at totalsecond dot com>
 # with special thanks to deadlte for version 3.07.1
 
 pkgname=libsdrplay
-pkgver=3.14.0
+pkgver=3.15.1
 pkgrel=1
 pkgdesc="Modules for the SDRplay receiver"
 arch=('aarch64' 'x86_64')
@@ -13,7 +14,7 @@ depends=('libusb>=1.0')
 source=("http://www.sdrplay.com/software/SDRplay_RSP_API-Linux-${pkgver}.run"
 		"sdrplay.service"
 		"66-sdrplay.rules")
-sha256sums=('0a0f3e2009298d1d1163158f4e22fc4fc9d41cd4f8647191474ef25beaf0fc4d'
+sha256sums=('093732bf5d17cfd1b62ea1e1e2a396f6d28111c07eaf3b44d91ef12485384014'
 			'69935539fad9b7cf2cd1feb4017974cfaf164c37dfd01adfb0086ea7512e6ce7'
 			'60ab1774bdf810d2019178486f1ef40960fb04f0d84f976e4bf1990ea8427d65')
 
