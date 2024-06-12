@@ -1,6 +1,6 @@
 pkgbase = libindi-git
 	pkgdesc = A distributed control protocol designed to operate astronomical instrumentation
-	pkgver = v2.0.4.20.gb24472523
+	pkgver = v2.0.8.12.g0905b87df
 	pkgrel = 1
 	url = https://www.indilib.org/index.php?title=Main_Page
 	arch = x86_64
