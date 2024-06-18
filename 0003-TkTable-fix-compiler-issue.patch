@@ -1,0 +1,34 @@
+From d7bfdad60674550abae4dd19dd05bb4c67b5eea0 Mon Sep 17 00:00:00 2001
+From: William Joye <wjoye@cfa.harvard.edu>
+Date: Wed, 13 Mar 2024 12:18:38 -0400
+Subject: [PATCH] TkTable: fix compiler issue
+
+---
+ tktable/generic/tkTableTag.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tktable/generic/tkTableTag.c b/tktable/generic/tkTableTag.c
+index 480fb0423..f9a0ada49 100644
+--- a/tktable/generic/tkTableTag.c
++++ b/tktable/generic/tkTableTag.c
+@@ -22,7 +22,7 @@ static void	TableImageProc _ANSI_ARGS_((ClientData clientData, int x,
+ static int	TableOptionReliefSet _ANSI_ARGS_((ClientData clientData,
+ 			Tcl_Interp *interp, Tk_Window tkwin,
+ 			CONST84 char *value, char *widgRec, int offset));
+-static char *	TableOptionReliefGet _ANSI_ARGS_((ClientData clientData,
++static const char *	TableOptionReliefGet _ANSI_ARGS_((ClientData clientData,
+ 			Tk_Window tkwin, char *widgRec, int offset,
+ 			Tcl_FreeProc **freeProcPtr));
+ 
+@@ -1340,7 +1340,7 @@ TableOptionReliefSet(clientData, interp, tkwin, value, widgRec, offset)
+  *----------------------------------------------------------------------
+  */
+ 
+-static char *
++static const char *
+ TableOptionReliefGet(clientData, tkwin, widgRec, offset, freeProcPtr)
+     ClientData clientData;		/* Type of struct being set. */
+     Tk_Window tkwin;			/* Window containing canvas widget. */
+-- 
+2.45.2
+
