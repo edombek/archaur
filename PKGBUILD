@@ -5,7 +5,7 @@
 
 pkgname=libsdrplay
 pkgver=3.15.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Modules for the SDRplay receiver"
 arch=('aarch64' 'x86_64')
 url="http://www.sdrplay.com"
@@ -27,6 +27,12 @@ prepare() {
 
 package() {
 	cd "${srcdir}"
+
+	CARCH_=$CARCH
+    case ${CARCH} in
+     x86_64) CARCH_="amd64" ;;
+     aarch64)   CARCH_="arm64" ;;
+    esac
 	
 	msg2 "Getting API version..."
 	_apivers=$(sed -n 's/^VERS="\(.*\)"/\1/p' install_lib.sh)
@@ -35,8 +41,8 @@ package() {
 	# These commands are equivalent to the scripts used in the supplied
 	# run file
 	install -D -m644 sdrplay_license.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
-	install -D -m644 "${CARCH}/libsdrplay_api.so.${_apivers}" 		"${pkgdir}/usr/lib/libsdrplay_api.so.${_apivers}"
-	install -D -m755 "${CARCH}/sdrplay_apiService" "${pkgdir}/usr/bin/sdrplay_apiService"
+	install -D -m644 "${CARCH_}/libsdrplay_api.so.${_apivers}" 		"${pkgdir}/usr/lib/libsdrplay_api.so.${_apivers}"
+	install -D -m755 "${CARCH_}/sdrplay_apiService" "${pkgdir}/usr/bin/sdrplay_apiService"
 	install -D -m644 "sdrplay.service" "${pkgdir}/etc/systemd/system/sdrplay.service"
 
 	(cd inc && find . -type f -exec install -D -m644 "{}" "${pkgdir}/usr/include/{}" \;)
