@@ -1,0 +1,20 @@
+pkgbase = gildas
+	pkgdesc = GILDAS
+	pkgver = 2024.09.a
+	pkgrel = 1
+	url = https://www.iram.fr/IRAMFR/GILDAS/
+	arch = x86_64
+	license = custom
+	makedepends = python
+	makedepends = python-setuptools
+	makedepends = python-numpy
+	makedepends = which
+	depends = gcc-fortran
+	depends = cfitsio
+	depends = gtk2
+	optdepends = python-numpy
+	options = !strip
+	source = https://www.iram.fr/~gildas/dist/gildas-src-sep24a.tar.xz
+	sha512sums = 5c3730e7ae3c0fa3531d7b9f6fb03ef39b57d0a75c28f052be00f69454a236d0314afe069d924aae0c776199ddc98c5865ae3de801f49ac1c0ad6f6bddebfba8
+
+pkgname = gildas
